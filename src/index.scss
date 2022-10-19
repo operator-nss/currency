@@ -1,0 +1,266 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+body {
+  background-color: #f9f2ed;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+
+* {
+  font-family: 'Inter', system-ui !important;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 30px;
+  width: 900px;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  position: relative;
+  @media (max-width: 991.98px) {
+    grid-template-columns: 1fr;
+    width: 500px;
+  }
+  @media (max-width: 479.98px) {
+    width: 300px;
+    padding: 15px;
+  }
+}
+
+.blocks {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  position: relative;
+  &--rebase {
+    flex-direction: row-reverse;
+  }
+  @media (max-width: 991.98px) {
+    flex-direction: column;
+    &--rebase {
+      flex-direction: column-reverse;
+    }
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 25px;
+    cursor: pointer;
+    will-change: transform;
+    transition: transform 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+        -o-transform: scale(1.05);
+        transform: scale(1.05);
+      }
+    }
+    @media (max-width: 991.98px) {
+      top: 0;
+    }
+  }
+}
+
+.block {
+  input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 20px 20px;
+    letter-spacing: 1.3px;
+    outline: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
+.currencies {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+
+  li {
+    display: inline-flex;
+    padding: 10px 20px;
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    justify-content: center;
+    flex: 1;
+    @media (max-width: 479.98px) {
+      padding: 10px;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    &.active {
+      background-color: #16b67f;
+      color: #fff;
+    }
+
+    &:last-of-type {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 50px;
+      border-right: 0;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}
+
+.popup {
+  //width: 926px;
+  padding: 20px 30px;
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 3;
+  background: #fff;
+  box-shadow: 0 8px 40px 0 rgb(0 0 0 / 20%);
+  display: none;
+  border-radius: 4px;
+
+  ul {
+    row-gap: 2px;
+    column-gap: 50px;
+    //display: flex;
+    //flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    @media (max-width: 991.98px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 678.98px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--open {
+    display: block;
+  }
+
+  &__currency {
+    margin: 2px 0;
+    padding: 8px 10px;
+    //overflow: hidden;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    //flex: 0 1 28%;
+    display: flex;
+    gap: 40px;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        background: #dbe9f9;
+      }
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+}
+
+.date {
+  position: absolute;
+  right: 37px;
+  bottom: 5px;
+  font-size: 12px;
+  @media (max-width: 479.98px) {
+    bottom: 0;
+  }
+}
